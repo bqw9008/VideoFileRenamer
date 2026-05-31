@@ -1,0 +1,125 @@
+<Application x:Class="VideoFileRenamer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="ThemeWindowBackground" Color="#F7F8FA" />
+        <SolidColorBrush x:Key="ThemeSurfaceBackground" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="ThemeSurfaceAltBackground" Color="#F1F3F5" />
+        <SolidColorBrush x:Key="ThemeControlBackground" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="ThemeControlHoverBackground" Color="#F1F5F9" />
+        <SolidColorBrush x:Key="ThemeControlPressedBackground" Color="#E5E7EB" />
+        <SolidColorBrush x:Key="ThemeControlDisabledBackground" Color="#E5E7EB" />
+        <SolidColorBrush x:Key="ThemeTextBrush" Color="#111827" />
+        <SolidColorBrush x:Key="ThemeDisabledTextBrush" Color="#6B7280" />
+        <SolidColorBrush x:Key="ThemeBorderBrush" Color="#D1D5DB" />
+        <SolidColorBrush x:Key="ThemeSelectionBackground" Color="#BFDBFE" />
+        <SolidColorBrush x:Key="ThemeSelectionForeground" Color="#111827" />
+
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Background" Value="{DynamicResource ThemeWindowBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+        </Style>
+
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+        </Style>
+
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="CaretBrush" Value="{DynamicResource ThemeTextBrush}" />
+            <Setter Property="SelectionBrush" Value="{DynamicResource ThemeSelectionBackground}" />
+            <Setter Property="SelectionTextBrush" Value="{DynamicResource ThemeSelectionForeground}" />
+            <Setter Property="Padding" Value="8,0" />
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="Padding" Value="12,4" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ThemeControlHoverBackground}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ThemeControlPressedBackground}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource ThemeDisabledTextBrush}" />
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ThemeControlDisabledBackground}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="{DynamicResource ThemeSurfaceBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="RowBackground" Value="{DynamicResource ThemeSurfaceBackground}" />
+            <Setter Property="AlternatingRowBackground" Value="{DynamicResource ThemeSurfaceAltBackground}" />
+        </Style>
+
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background" Value="{DynamicResource ThemeSurfaceAltBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="Padding" Value="8,6" />
+        </Style>
+
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="{DynamicResource ThemeSurfaceBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource ThemeSelectionBackground}" />
+                    <Setter Property="Foreground" Value="{DynamicResource ThemeSelectionForeground}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+            <Setter Property="Padding" Value="8,4" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource ThemeSelectionBackground}" />
+                    <Setter Property="Foreground" Value="{DynamicResource ThemeSelectionForeground}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
+</Application>

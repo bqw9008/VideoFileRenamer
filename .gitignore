@@ -1,0 +1,45 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+artifacts/
+
+# .NET generated files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+*.nupkg
+*.snupkg
+project.lock.json
+project.assets.json
+*.nuget.g.props
+*.nuget.g.targets
+*.nuget.dgspec.json
+
+# Visual Studio
+.vs/
+TestResults/
+*.VisualState.xml
+
+# JetBrains Rider / ReSharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+# VS Code
+.vscode/
+
+# Windows and local files
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.temp
+
+# Environment files
+.env
+.env.*
+!.env.example
